@@ -1,4 +1,3 @@
-import CardLink from './CardLink';
 import {
   BsDiscord,
   BsGithub,
@@ -6,17 +5,24 @@ import {
   BsTelegram,
   BsTwitter,
 } from 'react-icons/bs';
+import CardLink from './CardLink';
 import WebsiteLogo from './WebsiteLogo';
 
 export default function Main() {
   return (
-    <main className="mt-20">
-      <div className="container flex flex-wrap justify-center gap-4 px-4">
+    <main className="my-20">
+      <div className="container grid max-w-[40ch] grid-cols-1 gap-4 px-4 md:max-w-[80ch] md:grid-cols-2">
         <CardLink
           logoName={'MyWebsite'}
           link={'www.jordiirawan.site'}
           logo={<WebsiteLogo />}
           primaryColor={'#5bd1d7'}
+        />
+        <CardLink
+          logoName={'Blog'}
+          link={'daily.jordiirawan.site'}
+          logo={<WebsiteLogo />}
+          primaryColor={'#D094EA'}
         />
         <CardLink
           logoName={'Github'}

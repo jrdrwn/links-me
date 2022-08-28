@@ -1,5 +1,8 @@
 name: Deployment
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - "main"
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -10,12 +13,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: lts/gallium
-          cache: 'npm'
+          cache: "yarn"
       - name: Install Packages
-        run: npm i -D
+        run: yarn install --frozen-lockfile
       - name: Build
         run: |
-          npm run build
+          yarn build
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v3
